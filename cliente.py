@@ -43,7 +43,7 @@ class Cliente(object):
 
 
             if self._tick_count < int(clk_origem):
-                print("modificacao de clock!!")
+                print("------modificacao de clock!!-----")
                 print("clock local : "+ str(self._tick_count))
                 print("clock recebido : "+ str(clk_origem))
                 self._tick_count = int(clk_origem) + 1

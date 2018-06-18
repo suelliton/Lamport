@@ -27,15 +27,15 @@ class Servidor(object):
         ip_sort = randint(self._faixa+1,self._faixa+self._qtdProcessos)#sortea numero final do ip destino
         while "127.0.0."+str(ip_sort) == self._ip:
             ip_sort = randint(self._faixa+1,self._faixa+self._qtdProcessos)
-        print("bufo")
+        print("Starting...")
 
         ip_destino = "127.0.0."+str(ip_sort)
         dest = (ip_destino, 5000)
         tcp.connect(dest)
 
         millis = self._tick_count
-        while millis > millis + (self._tick * 2):#enquanto ainda estiver no clock atual
-            print("huhudidir hihihi")
+        while self._tick_count < millis + (self._tick * 2):#enquanto ainda estiver no clock atual
+            pass
 
 
         msg = self._nome+"-"+str(self._tick_count)+"-"+str(self._tick)+"-"+str(self._ip)+"-"+ip_destino+"-"+str(1)
@@ -94,8 +94,8 @@ class Servidor(object):
         print("------------------------------------------------------------------")
         if len(nome) > 4:
             print("|   nome    |clk_origem| tick  |   origem   |    destino   |  msg  |")
-            print("|  "+nome+" |     "+clk_origem+       "    |   "+tick+"   |"+origem+" | "+destino+"  |  "+mensagem+"   |")
+            print("|  "+nome+" |    "+clk_origem+      "    |   "+tick+"   |"+origem+" | "+destino+"  |  "+mensagem+"   |")
         else:
-            print("|   nome    |clk_origem|   tick    |  origem  |    destino   |  msg  |")
-            print("|    "+nome+"     |    "+clk_origem+"    | "+origem+"  |  "+destino+"  |   "+mensagem+" | ")
+            print("|   nome    |clk_origem| tick |   origem   |    destino   |  msg  |")
+            print("|    "+nome+"     |    "+clk_origem+"    | "+tick +"    | "+origem+"|  "+destino+" |   "+mensagem+" | ")
         print("------------------------------------------------------------------")

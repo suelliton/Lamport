@@ -27,12 +27,11 @@ def main():
     hosts = range(faixa+1,faixa+qtdProcessos+1)
 
     for host in hosts:
-        print("hosts "+str(host))
+        print("host "+str(host))
 
     cont = 1
     for host in hosts:
         sort = randint(2,10)
-        print("sorteadooo  " +str(sort))
         threading.Thread(target=makeProcess,args=("127.0.0."+str(host),5000,sort,"p"+str(cont),faixa,qtdProcessos)).start()
         cont =cont+1
 
